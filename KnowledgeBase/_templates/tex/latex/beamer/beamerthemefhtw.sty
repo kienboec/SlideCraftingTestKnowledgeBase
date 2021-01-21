@@ -1,0 +1,183 @@
+\mode<presentation>
+
+\usepackage{pgfcomp-version-0-65}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\usepackage{framed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%	Color theme / Font theme
+%%  Technikum Wien - Corporate Identity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{tw-blue}{RGB}{0, 101, 156}
+\definecolor{tw-green}{RGB}{140, 177, 16}
+\definecolor{tw-gray}{RGB}{113, 120, 125}
+\definecolor{tw-blue-light}{RGB}{0, 100, 156}
+\definecolor{tw-green-light}{RGB}{195, 255, 0}
+\definecolor{tw-white}{RGB}{255, 255, 255}
+\definecolor{tw-black}{RGB}{0, 0, 0}
+\definecolor{tw-orange}{RGB}{255, 125, 0}
+
+% This sets the colour and font of the title of the slides
+\setbeamercolor{frametitle}{fg = tw-black}
+\setbeamerfont{frametitle}{size = \Large}
+\setbeamertemplate{frametitle}{
+	\vspace*{10mm}
+	\hspace*{-2mm}
+	\insertframetitle
+}
+
+\setbeamercolor{Title}{fg = tw-blue}
+\setbeamerfont{Title}{size = \huge}
+
+% In case you choose to display the Table of Contents, or the Outline slide.
+\setbeamercolor{section in toc}{fg = tw-blue}
+\setbeamercolor{section in toc shaded}{fg = tw-blue}
+
+% The colour of all the items, subitems and and subsubitems are set to black.
+\setbeamercolor{item}{fg = tw-blue}
+\setbeamercolor{subitem}{fg = tw-blue}
+\setbeamercolor{subsubitem}{fg = tw-blue}
+
+% This sets the color for each item heading of the description environment.
+\setbeamercolor{description item}{fg = tw-blue}
+
+% We also need to fix the colours for captions for figures and tables.
+\setbeamercolor{caption}{fg = tw-green}
+\setbeamercolor{caption name}{fg = tw-blue}
+
+%Standard block
+\setbeamercolor{block title}{fg = tw-blue, bg = tw-blue!15!white}
+\setbeamercolor{block body}{bg = tw-blue!5!white}
+
+% Alert block
+\setbeamercolor{block title alerted}{fg = tw-orange, bg = tw-orange!50!white}
+\setbeamercolor{block body alerted}{bg = tw-orange!5!white}
+
+% Example block
+\setbeamercolor{block title example}{fg = tw-green, bg = tw-green!15!white}
+\setbeamercolor{block body example}{bg = tw-green!5!white}
+
+% Color of basic text
+\setbeamercolor{normal text}{fg = tw-black}
+\usefonttheme{professionalfonts}
+
+\hypersetup{colorlinks,urlcolor=blue}
+\setbeamercolor{button}{fg = tw-blue}
+
+\setbeamertemplate{navigation symbols}{
+	\insertslidenavigationsymbol
+	\insertframenavigationsymbol
+	\insertsubsectionnavigationsymbol
+	\insertsectionnavigationsymbol
+	\insertdocnavigationsymbol
+	\insertbackfindforwardnavigationsymbol
+}
+
+
+%%%%%%%%%%%%%%
+%%
+%%	Inner theme
+%%
+%%%%%%%%%%%%%%
+\useinnertheme{rounded}
+\setbeamercovered{transparent = 28}
+\defbeamertemplate{itemize subitem}{minus}{\textbf{-}}
+\defbeamertemplate{itemize subsubitem}{bullet}{$\bullet$}
+
+% Instead of rounded circles, we will use triangles as the indicator for items.
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[minus]
+\setbeamertemplate{itemize subsubitem}[bullet]
+
+% The default option for enumerate environment removes the circles around the numbers provided by the "rounded" inner theme. Just simple numbers remain.
+\setbeamertemplate{enumerate items}[square]
+\setbeamertemplate{enumerate item}[square]
+
+%in case you want to have an 1.2.3 numbering style use the template below
+%\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+\setbeamertemplate{enumerate subitem}[square]
+\setbeamertemplate{enumerate subsubitem}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+%%%%%%%%%%%%%%
+%%
+%%	Outer theme
+%%
+%%%%%%%%%%%%%%
+
+\setbeamertemplate{sidebar canvas right}{
+	\vspace*{3pt}%
+	\hspace*{-100pt}{
+		\includegraphics[height=70pt]{/miktex/work/src/_templates/tex/latex/beamer/images/FHTW_Logo_Farbe_transparent.png}%
+	}%
+}%
+
+\setbeamertemplate{footline}{%
+
+	\usebeamerfont{structure}
+	\begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
+		\Tiny\hspace*{4mm} 
+		UAS Technikum Wien\ -\ \inserttitle
+		\ifx\insertsection\empty\else:\ \insertsection\fi%
+		\ifx\insertsubsection\empty\else\ -\ \insertsubsection\fi
+		\hfill
+		\insertauthor % The center
+		\hfill
+		.
+		\hspace{4mm}
+	\end{beamercolorbox}%
+
+}
+
+\setbeamertemplate{title page}{
+
+	\vspace{80pt}
+	
+	\begin{beamercolorbox}[wd=\paperwidth, ht=0.06\paperwidth]{Title}%
+		\centering \huge \inserttitle
+	\end{beamercolorbox}
+	\vspace{1pt}
+	
+	\begin{beamercolorbox}[wd=\paperwidth, ht=0.06\paperwidth]{Title}%
+	 	\centering \small \textit{\insertsubtitle}%
+	\end{beamercolorbox}
+	\vspace{30pt}
+	
+	\begin{beamercolorbox}[wd=\paperwidth, ht=0.06\paperwidth]{Title}%
+		\hfill
+		\small 
+		\textcolor{tw-black}{
+			\insertauthor
+		} 
+		\hspace{4mm}
+	\end{beamercolorbox}
+	\vspace{-20pt}
+	
+	\begin{beamercolorbox}[wd=\paperwidth, ht=0.06\paperwidth]{Title}%
+		\hfill 
+		\tiny 
+		\textcolor{tw-black}{
+			\textit{\insertinstitute}
+		}%
+		\hspace{4mm}
+	\end{beamercolorbox}
+	\vspace{-20pt}
+	
+	\begin{beamercolorbox}[wd=\paperwidth, ht=0.06\paperwidth]{Title}%
+		\hfill 
+		\tiny 
+		\textcolor{tw-black}{
+			\textit{\insertdate}
+		}%
+		\hspace{4mm}
+	\end{beamercolorbox}
+}
+

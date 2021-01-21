@@ -1,0 +1,25 @@
+title: 'Kick Off'
+
+# added 
+input-files:
+- 00_Test/___full.lst.yaml
+
+lang: en-US 
+
+author: ["Computer Science Department"]
+institute: "University of Applied Science Technikum Wien"
+
+keywords: [SWE2, FHTW, KickOff]
+
+subject: Software Engineering 2
+description: A lecture on software engineering 2 in C\# or Java.
+
+version: 1
+
+header-includes:
+  - \definecolor{my-link-blue}{RGB}{0, 101, 156}
+  - \hypersetup{colorlinks=true,linkcolor=my-link-blue,citecolor=my-link-blue,urlcolor=my-link-blue,urlbordercolor=my-link-blue,pdfborderstyle={/S/U/W 1}}
+
+aspectratio: 169 # 43
+beameroption:
+#  - show notes
